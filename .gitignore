@@ -2,4 +2,4 @@ venv/
 
 __pycache__/
 
-config.ini
+clean_code/src/main/resources/config.ini
