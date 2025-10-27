@@ -34,10 +34,10 @@ class MySqlCRUDOperation:
         self.connection = mysql_connection
 
 
-    def read_from_mysql(self, query):
+    def read_from_mysql(self, query, params):
         try:
             cursor = self.connection.cursor()
-            cursor.execute(query)
+            cursor.execute(query, params)
             rows = cursor.fetchall()
             return rows
         except Exception as e:
@@ -50,10 +50,10 @@ class MySqlCRUDOperation:
 
 
     # Use Update, Insert and Delete Queries 
-    def insert_into_mysql(self, query):
+    def insert_into_mysql(self, query, params):
         try:
             cursor = self.connection.cursor()
-            cursor.execute(query)
+            cursor.execute(query, params)
         except Exception as e:
             logger.error(f"Error in query: {e}")
             raise e
