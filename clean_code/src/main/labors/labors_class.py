@@ -22,14 +22,14 @@ class labors:
         
         logger.info(f"Labor Not Exists")
 
-        insert_query = """  INSERT INTO labors(id, first_name, last_name, wage, role, email)
-                            VALUES (%s, %s, %s, %s, %s, %s)
+        insert_query = """  INSERT INTO labors(first_name, last_name, wage, role, email)
+                            VALUES (%s, %s, %s, %s, %s)
                         """
         email = self.first_name + self.last_name + "@gmail.com"
-        ret = curd.insert_into_mysql(insert_query, ("2", self.first_name, self.last_name, self.wage, self.role, email))
-
+        ret = curd.insert_into_mysql(insert_query, (self.first_name, self.last_name, self.wage, self.role, email))
+        print(f"ret: {ret}")
         if ret:
             logger.info("Labor Added")
             return
 
-
+        
