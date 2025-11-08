@@ -1,16 +1,27 @@
-from loguru import logger 
+class parent:
+    def __init__(self, fname):
+        self.fname = fname
 
-class labor:
-    def __init__(self, first_name, last_name, wage):
-        self.first_name = first_name
-        self.last_name = last_name 
-        self.wage = wage 
-        
+    def full_name(self):
+        return "Khan" + ' ' + self.fname
 
-    def save_to_database(self):
-        query = """ SELECT * FROM labors WHERE lower(first_name) = %s and lower(last_name) = %s """
+class child(parent):
+    def __init__(self, fname, lname):
+        super().__init__(fname)
+        self.lname = lname
+
+    def full_name(self):
+        return self.fname + '.' + self.lname
 
 
-obj1 = labor("Hello")
-print(obj1._labor__temp)
-# print(dir(obj1))
+class grandChild(child):
+    def __init__(self, fname, lname):
+        super().__init__(fname, lname)
+
+    def full_name(self):
+        return "Ok"
+
+
+obj = grandChild("Akhtar", "Khan")
+print(help(obj))
+print(obj.full_name())

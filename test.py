@@ -1,7 +1,10 @@
-from loguru import logger
+s = "aKHTAR"
 
-print("My Name is \"Akhtar\" ")
+l = list(s)
+print(l)
 
-print("Hello World {}".format(100))
+print(s[0].islower())
 
-logger.info("Akhtar Khan")
+if s[0].islower():
+    l[0] = s[0].upper()
+    print(l)
