@@ -36,6 +36,7 @@ class MySqlCRUDOperation:
 
     def read_from_mysql(self, query, params):
         try:
+            logger.info(query)
             cursor = self.connection.cursor()
             cursor.execute(query, params)
             rows = cursor.fetchall()
@@ -52,6 +53,7 @@ class MySqlCRUDOperation:
     # Use Update, Insert and Delete Queries 
     def insert_into_mysql(self, query, params):
         try:
+            logger.info(query)
             cursor = self.connection.cursor()
             cursor.execute(query, params)
         except Exception as e:

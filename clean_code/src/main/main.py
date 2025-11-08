@@ -1,7 +1,7 @@
 import configparser
 from databases.mysql_conn import * 
 from databases.mysql_conn_class import *
-from labors.labors_class import labors
+from labors.labors_class import labors, Person, Mistry
 from loguru import logger
 
 
@@ -15,8 +15,10 @@ def main():
 
     curd_operation = MySqlCRUDOperation(mysql_db_conn.connection)
 
-    labor_obj = labors("Irfan", "Khan", "90000000", "mistry", curd_operation)
-    # labor_obj.save_to_database(curd_operation)
+    # labors.login_logout(config, curd_operation, None, "Akhtar", "Khan")
+
+    obj = Mistry("Imran", "Pathan", "10000", "Admin", "A, B", curd_operation, config)
+    obj.save_to_skill_table()
 
 
 if __name__ == "__main__":

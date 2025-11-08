@@ -12,5 +12,15 @@ CREATE TABLE attendance (
     labour_id INT NOT NULL,
     start_time DATETIME NOT NULL,
     end_time DATETIME DEFAULT NULL,
-	FOREIGN KEY (id) REFERENCES labors(id)
+	FOREIGN KEY (labour_id) REFERENCES labors(id)
     );
+
+
+CREATE TABLE skills (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    labour_id INT NOT NULL,
+    skill VARCHAR(100),
+	FOREIGN KEY (labour_id) REFERENCES labors(id)
+    );
+
+    
